@@ -143,7 +143,7 @@
         <a href="https://github.com/automationxpert">
             <img src="https://avatars.githubusercontent.com/u/70540068?v=4" width="80;" alt="automationxpert"/>
             <br />
-            <sub><b>automationxpert</b></sub>
+            <sub><b>Automationxpert</b></sub>
         </a>
     </td>
     <td align="center">
