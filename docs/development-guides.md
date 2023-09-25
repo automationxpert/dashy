@@ -313,7 +313,7 @@ export default {
 All widgets extend from the [Widget](https://github.com/Lissy93/dashy/blob/master/src/mixins/WidgetMixin.js) mixin. This provides some basic functionality that is shared by all widgets. The mixin includes the following `options`, `startLoading()`, `finishLoading()`, `error()` and `update()`.
 
 - **Getting user options: `options`**
-  - Any user-specific config can be accessed with `this.options.something` (where something is the data key your accessing)
+  - Any user-specific config can be accessed with `this.options.something` (where something is the data key you're accessing)
 - **Loading state: `startLoading()` and `finishLoading()`**
   - You can show the loader with `this.startLoading()`, then when your data request completes, hide it again with `this.finishLoading()`
 - **Error handling: `error()`**
@@ -341,7 +341,7 @@ computed: {
 
 #### **Adding an API Endpoint**
 
-If your widget makes a data request, then add the URL for the API under point to the `widgetApiEndpoints` array in [`defaults.js`](https://github.com/Lissy93/dashy/blob/master/src/utils/defaults.js#L207)
+If your widget makes a data request, then add the URL for the API endpoint to the `widgetApiEndpoints` array in [`defaults.js`](https://github.com/Lissy93/dashy/blob/master/src/utils/defaults.js#L207)
 
 ```javascript
 widgetApiEndpoints: {
@@ -410,7 +410,7 @@ Now that the results are in the correct format, and stored as data variables, we
 
 #### **Styling**
 
-Styles can be written your your widget within the `<style>` block.
+Styles can be written for your widget within the `<style>` block.
 
 There are several color variables used by widgets, which extend from the base palette. Using these enables users to override colors to theme their dashboard, if they wish. The variables are: `--widget-text-color`, `--widget-background-color` and `--widget-accent-color`
 
@@ -426,38 +426,20 @@ For examples of finished widget components, see the [Widgets](https://github.com
 
 ### Step 3 - Register
 
-Next, import and register your new widget, in [`WidgetBase.vue`](https://github.com/Lissy93/dashy/blob/master/src/components/Widgets/WidgetBase.vue). In this file, you'll need to add the following:
-
-Import your widget file
+Next, register your new widget in [`WidgetBase.vue`](https://github.com/Lissy93/dashy/blob/master/src/components/Widgets/WidgetBase.vue). In this file, you'll need to add the following:
 
 ```javascript
-import ExampleWidget from '@/components/Widgets/ExampleWidget.vue';
-```
-
-Then register the component
-
-```javascript
-components: {
+const COMPAT = {
   ...
-  ExampleWidget,
-},
+  'example-widget': 'ExampleWidget',
+};
 ```
 
-Finally, add the markup to render it. The only attribute you need to change here is, setting `widgetType === 'example'` to your widget's name.
-
-```vue
-<ExampleWidget
-  v-else-if="widgetType === 'example'"
-  :options="widgetOptions"
-  @loading="setLoaderState"
-  @error="handleError"
-  :ref="widgetRef"
-/>
-```
+Here, the `example-widget` property name will be used to identify the widget when parsing the `type` property in a configuration file. The `ExampleWidget` string is used to dynamically import the widget, and therefore must match the widget's filename as it exists in the `components/widgets` folder.
 
 ### Step 4 - Docs
 
-Finally, add some documentation for your widget in the [Widget Docs](https://github.com/Lissy93/dashy/blob/master/docs/widgets.md), so that others know hoe to use it. Include the following information: Title, short description, screenshot, config options and some example YAML.
+Finally, add some documentation for your widget in the [Widget Docs](https://github.com/Lissy93/dashy/blob/master/docs/widgets.md), so that others know how to use it. Include the following information: Title, short description, screenshot, config options and some example YAML.
 
 **Summary**: For a complete example of everything discussed here, see: [`3da76ce`](https://github.com/Lissy93/dashy/commit/3da76ce2999f57f76a97454c0276301e39957b8e)
 

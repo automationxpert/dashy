@@ -34,9 +34,12 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [NASA APOD](#astronomy-picture-of-the-day)
   - [GitHub Trending](#github-trending)
   - [GitHub Profile Stats](#github-profile-stats)
-  - [Healthchecks Status](#healthchecks status)
+  - [Healthchecks Status](#healthchecks-status)
+  - [Hackernews Trending](#hackernews-trending)
   - [Mvg Departure](#mvg-departure)
   - [Mvg Connection](#mvg-connection)
+  - [Custom search](#custom-search)
+  - [Rescuetime overview](#rescuetime-overview)
 - **[Self-Hosted Services Widgets](#self-hosted-services-widgets)**
   - [System Info](#system-info)
   - [Cron Monitoring](#cron-monitoring-health-checks)
@@ -58,6 +61,7 @@ Dashy has support for displaying dynamic content in the form of widgets. There a
   - [Nextcloud System](#nextcloud-system)
   - [Nextcloud Stats](#nextcloud-stats)
   - [Nextcloud PHP OPcache](#nextcloud-php-opcache-stats)
+  - [Proxmox lists](#proxmox-lists)
   - [Sabnzbd](#sabnzbd)
   - [Gluetun VPN Info](#gluetun-vpn-info)
   - [Drone CI Build](#drone-ci-builds)
@@ -219,6 +223,7 @@ Display news and updates from any RSS-enabled service.
 **`limit`** | `number` |  _Optional_ | The number of posts to return. If you haven't specified an API key, this will be limited to 10
 **`orderBy`** | `string` |  _Optional_ | How results should be sorted. Can be either `pubDate`, `author` or `title`. Defaults to `pubDate`
 **`orderDirection`** | `string` |  _Optional_ | Order direction of feed items to return. Can be either `asc` or `desc`. Defaults to `desc`
+**`parseLocally`** | `boolean`     |  _Optional_ | If true parse the rss feed locally instead of using the rss2json API.
 
 #### Example
 
@@ -706,6 +711,7 @@ Counting down to the next day off work? This widget displays upcoming public hol
 **`state`** | `string` |  **Optional** | restrict a country to a specific state defined by [ISO_3166-2](https://en.wikipedia.org/wiki/ISO_3166-2), e.g. `LND`.
 **`holidayType`** | `string` |  **Optional** | The type of holidays to fetch. Can be: `all`, `public_holiday`, `observance`, `school_holiday`, `other_day` or `extra_working_day`. Defaults to `public_holiday`
 **`monthsToShow`** | `number` |  **Optional** | The number of months in advance to show. Min: `1`, max: `24`. Defaults to `12`
+**`lang`** | `string` |  **Optional** | The language in which the events should be. Usually local languages and english are available. Default to first available in the country. e.g. `en` or `fr`.
 
 #### Example
 
@@ -716,6 +722,7 @@ Counting down to the next day off work? This widget displays upcoming public hol
     region: LND
     holidayType: all
     monthsToShow: 12
+    lang: en
 ```
 
 #### Info
@@ -1147,7 +1154,7 @@ Display stats from your GitHub profile, using embedded cards from [anuraghazra/g
 
 ### HealthChecks Status
 
-Display status of one or more HealthChecks project(s). Works with healthcheck.io and your selfhosted instance.
+Display status of one or more HealthChecks project(s). Works with healthchecks.io and your selfhosted instance.
 
 <p align="center"><img width="380" src="https://i.ibb.co/W5dP6VN/Bildschirm-foto-2023-01-07-um-11-07-11.png" /></p>
 
@@ -1174,6 +1181,27 @@ Display status of one or more HealthChecks project(s). Works with healthcheck.io
 - **Price**: 🟢 Free / Paid / Self-hosted 
 - **Host**: Managed Instance or Self-Hosted (see [healthchecks/healthchecks](https://github.com/healthchecks/healthchecks))
 - **Privacy**: _See [Healthchecks.io Privacy Policy](https://healthchecks.io/privacy/)_
+
+---
+
+### Hackernews Trending
+
+Display new and trending Posts from Hackernews
+
+#### Options
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`stories`** | `string` |  _Optional_ | HN Stories to display defaults to `topstories`. Options are: `beststories`, `topstories` or `newstories`
+**`limit`** | `int` |  _Optional_ | The size of the list of Posts to show.
+
+##### Example
+
+```yaml
+- type: hackernews-trending
+  options:
+    stories: newstories
+    limit: 10
+```
 
 ---
 
@@ -1262,11 +1290,93 @@ In other words: Private, noncomercial, moderate use of the API is tolerated. The
 
 ---
 
+### Custom search
+
+Allows web search using multiple user-defined search engines and other websites.
+
+#### Options
+
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`engines`** | `array` |  required | An array of search engine objects. Each search engine object should have two required properties: **title** and **url**. See the example below.
+**`placeholder`** | `string` |  optional | Placeholder text in the search box.
+
+#### Notes
+- The first search engine in the engines array will be treated as the default search engine, and used when the user presses `Enter` in the search box.
+- Popup blockers can interfere with opening a new search window.
+
+#### Example
+
+This widget allows searching multiple search engines from dashy.
+```yaml
+  - type: 'custom-search'
+    options:
+      placeholder: Search for something using the buttons below
+      engines:
+      - title: SearXNG
+        url: https://searx.lan/?q=
+      - title: Quant
+        url: https://www.qwant.com/?q=
+      - title: Bing Web
+        url: http://www.bing.com/search?q=
+      - title: Bing Images
+        url: http://www.bing.com/images/search?q=
+      - title: Bing Maps
+        url: http://www.bing.com/maps/search?q=
+      - title: Yandex
+        url: https://www.yandex.com/search/?text=
+      - title: Passmark
+        url: https://www.passmark.com/search/zoomsearch.php?zoom_query=
+      - title: IMDB
+        url: http://www.imdb.com/find?q=
+```
+#### Info
+
+- **CORS**: 🟢 Not needed
+- **Auth**: 🟢 Not Required
+- **Price**: 🟢 Free 
+- **Host**: user defined
+- **Privacy**: depends on the user defined search engines.
+
+---
+
+### RescueTime Overview
+
+Show an overview of how you have spent your time for the current day.
+
+<p align="center"><img width="400" src="https://i.ibb.co/bvx3PQM/rescuetime.png" /></p>
+
+#### Options
+
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`apiKey`** | `string` |  required | The API-Key generated in the RescueTime UI.
+
+
+#### Example
+
+```yaml
+  - type: rescue-time
+    useProxy: true
+    options:
+      apiKey: abcdefghijkl_mnop
+```
+#### Info
+
+- **CORS**: 🟢 Required
+- **Auth**: 🔴 Required
+- **Price**: 🟠 Depends on user subscription 
+- **Host**: [RescueTime](https://www.rescuetime.com)
+- **Privacy**: _See [RescueTime Privacy](https://www.rescuetime.com/privacy)_
+
+---
+
+
 
 ## Self-Hosted Services Widgets
 
 ### System Info
-
+_See [MVG Datenschutz](https://www.mvg.de/datenschutz-mvg.html)_
 Displays info about the server which Dashy is hosted on. Includes user + host, operating system, uptime and basic memory & load data.
 
 <p align="center"><img width="400" src="https://i.ibb.co/rvDPBDF/system-info.png" /></p>
@@ -1966,6 +2076,64 @@ Shows statistics about PHP OPcache performance on your Nextcloud server.
 - **Host**: Self-Hosted (see [Nextcloud](https://nextcloud.com))
 - **Privacy**: _See [Nextcloud Privacy Policy](https://nextcloud.com/privacy)_
 
+
+---
+
+### Proxmox lists
+
+Shows lists of nodes, containers, and VMs in a Proxmox virtual environment cluster, with a status indicator.
+
+#### Options
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`cluster_url`** | `string` |  Required | The URL of the proxmox cluster server. No trailing `/`. for example: `https://proxmox.lan:8006`
+**`user_name`** | `string` |  Required | A Proxmox API Username, for example `root@pam` or `dashy@pve`.
+**`token_name`** | `string` |  Required | A Proxmox API token name. You can get a token in the API section of the cluster management interface.
+**`token_uuid`** | `string` |  Required | The value of the token entered above. This is normally a UUID. 
+**`node`** | `string` |  optional | A Proxmox node name. If empty or not supplied, a list of nodes will be shown.
+**`node_data`** | `string` |  optional | This is required if a node is selected, Currently this accepts two values, either `lxc` or `qemu` but the widget can be improved to get other types of data from the Proxmox API.
+**`title`** | `string` |  optional | A widget title.
+**`title_as_link`** | `boolean` |  optional | When this is set to anything other than 0 or false, the title will be linked to the value entered in the `cluster_url` option.
+**`footer`** | `string` |  optional | A widget footer.
+**`footer_as_link`** | `boolean` |  optional | When this is set to anything other than 0 or false, the title will be linked to the value entered in the `cluster_url` option.
+**`hide_templates`** | `boolean` |  optional | When this is set to anything other than 0 or false, templates will be filtered out of the result list.
+
+#### Example
+This will show the list of nodes.
+```yaml
+  - type: proxmox-lists
+    useProxy: true 
+    options:
+      cluster_url: https://proxmox.lan:8006
+      user_name: root@pam
+      token_name: dashy
+      token_uuid: bfb152df-abcd-abcd-abcd-ccb95a472d01
+```
+This will show the list of VMs, with a title and a linked fotter, hiding VM templates.
+```yaml
+  - type: proxmox-lists
+    useProxy: true 
+    options:
+      cluster_url: https://proxmox.lan:8006
+      user_name: root@pam
+      token_name: dashy
+      token_uuid: bfb152df-abcd-abcd-abcd-ccb95a472d01
+      node: proxmox
+      node_data: qemu
+      title: Proxmox VMs
+      title_as_link: false
+      footer: Proxmox
+      footer_as_link: true
+      hide_templates: 1
+```
+#### Info
+
+- **CORS**: 🟠 Proxied
+- **Auth**: 🟢 Required
+- **Price**: 🟢 Free
+- **Host**: Self-Hosted (see [Proxmox Virtual Environment](https://proxmox.com/en/proxmox-ve))
+- **Privacy**: _See [Proxmox's Privacy Policy](https://proxmox.com/en/privacy-policy)_
+
 ---
 
 ### Sabnzbd
@@ -2379,12 +2547,19 @@ You'll need to enable the sensors plugin to use this widget, using: `--enable-pl
 
 <p align="center"><img width="400" src="https://i.ibb.co/xSs4Gqd/gl-cpu-temp.png" /></p>
 
+#### Options
+
+**Field** | **Type** | **Required** | **Description**
+--- | --- | --- | ---
+**`units`** | `string` |  _Optional_ | Use `C` to display temperatures in Celsius or `F` to use Fahrenheit. Defaults to `C`.
+
 #### Example
 
 ```yaml
 - type: gl-cpu-temp
   options:
     hostname: http://192.168.130.2:61208
+    units: C
 ```
 
 ---
@@ -2683,7 +2858,7 @@ Widgets cannot currently be edited through the UI. This feature is in developmen
 
 Widgets are built in a modular fashion, making it easy for anyone to create their own custom components.
 
-For a full tutorial on creating your own widget, you can follow [this guide](/docs/development-guides.md#building-a-widget), or take a look at [here](https://github.com/Lissy93/dashy/commit/3da76ce2999f57f76a97454c0276301e39957b8e) for a code example.
+For a full tutorial on creating your own widget, you can follow [this guide](/docs/development-guides.md/#building-a-widget), or take a look at [here](https://github.com/Lissy93/dashy/commit/3da76ce2999f57f76a97454c0276301e39957b8e) for a code example.
 
 Alternatively, for displaying simple data, you could also just use the either the [iframe](#iframe-widget), [embed](#html-embedded-widget), [data feed](#data-feed) or [API response](#api-response) widgets.
 
@@ -2701,7 +2876,7 @@ Please only request widgets for services that:
 - Allow for use in their Terms of Service
 - Would be useful for other users
 
-You can suggest a widget [here](https://git.io/Jygo3), please star the repo before submitting a ticket. If you are a monthly GitHub sponsor, I will happily build out a custom widget for any service that meets the above criteria, usually 2 within weeks of initial request.
+You can suggest a widget [here](https://git.io/Jygo3), please star the repo before submitting a ticket. If you are a monthly GitHub sponsor, I will happily build out a custom widget for any service that meets the above criteria, usually within 2 weeks of initial request.
 
 For services that are not officially supported, it is likely still possible to display data using either the [iframe](#iframe-widget), [embed](#html-embedded-widget) or [API response](#api-response) widgets. For more advanced features, like charts and action buttons, you could also build your own widget, using [this tutorial](/docs/development-guides.md#building-a-widget), it's fairly straight forward, and you can use an [existing widget](https://github.com/Lissy93/dashy/tree/master/src/components/Widgets) (or [this example](https://git.io/JygKI)) as a template.
 

@@ -6,6 +6,7 @@ import bn from '@/assets/locales/bn.json';
 import cs from '@/assets/locales/cs.json';
 import da from '@/assets/locales/da.json';
 import de from '@/assets/locales/de.json';
+import el from '@/assets/locales/el.json';
 import es from '@/assets/locales/es.json';
 import fr from '@/assets/locales/fr.json';
 import hi from '@/assets/locales/hi.json';
@@ -21,6 +22,7 @@ import sk from '@/assets/locales/sk.json';
 import sl from '@/assets/locales/sl.json';
 import sv from '@/assets/locales/sv.json';
 import tr from '@/assets/locales/tr.json';
+import ua from '@/assets/locales/ua.json';
 import zhCN from '@/assets/locales/zh-CN.json';
 import zhTW from '@/assets/locales/zh-TW.json';
 import pirate from '@/assets/locales/zz-pirate.json';
@@ -69,6 +71,12 @@ export const languages = [
     code: 'de',
     locale: de,
     flag: '🇩🇪',
+  },
+  { // Greek
+    name: 'Ελληνικά',
+    code: 'el',
+    locale: el,
+    flag: '🇬🇷',
   },
   { // Spanish
     name: 'Español',
@@ -159,6 +167,12 @@ export const languages = [
     code: 'tr',
     locale: tr,
     flag: '🇹🇷',
+  },
+  { // Ukrainian
+    name: 'Ukrainian',
+    code: 'ua',
+    locale: ua,
+    flag: '🇺🇦',
   },
   { // Chinese
     name: '简体中文',
