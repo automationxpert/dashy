@@ -84,6 +84,7 @@ module.exports = {
     'high-contrast-light',
     'adventure-basic',
     'basic',
+    'tama',
   ],
   /* Default color options for the theme configurator swatches */
   swatches: [
@@ -202,7 +203,7 @@ module.exports = {
     fa: 'https://kit.fontawesome.com',
     mdi: 'https://cdn.jsdelivr.net/npm/@mdi/font@7.0.96/css/materialdesignicons.min.css',
     si: 'https://unpkg.com/simple-icons@v7/icons',
-    generative: 'https://avatars.dicebear.com/api/identicon/{icon}.svg',
+    generative: 'https://api.dicebear.com/7.x/identicon/svg?seed={icon}',
     generativeFallback: 'https://evatar.io/{icon}',
     localPath: './item-icons',
     faviconName: 'favicon.ico',
@@ -214,7 +215,7 @@ module.exports = {
   /* API endpoints for widgets that need to fetch external data */
   widgetApiEndpoints: {
     anonAddy: 'https://app.anonaddy.com',
-    astronomyPictureOfTheDay: 'https://go-apod.herokuapp.com/apod',
+    astronomyPictureOfTheDay: 'https://apod.as93.net/apod',
     blacklistCheck: 'https://api.blacklistchecker.com/check',
     codeStats: 'https://codestats.net/',
     covidStats: 'https://disease.sh/v3/covid-19',
@@ -246,7 +247,7 @@ module.exports = {
     walletBalance: 'https://api.blockcypher.com/v1',
     walletQrCode: 'https://www.bitcoinqrcodemaker.com/api',
     weather: 'https://api.openweathermap.org/data/2.5/weather',
-    weatherForecast: 'https://api.openweathermap.org/data/2.5/forecast/daily',
+    weatherForecast: 'https://api.openweathermap.org/data/2.5/forecast',
     xkcdComic: 'https://xkcd.vercel.app/',
   },
   /* URLs for web search engines */
@@ -306,8 +307,8 @@ module.exports = {
     themeColor: '#00af87',
     msTileColor: '#0b1021',
     mode: 'production',
+    manifestCrossorigin: 'use-credentials',
     iconPaths: {
-      manifestCrossorigin: 'use-credentials',
       favicon64: './web-icons/favicon-64x64.png',
       favicon32: './web-icons/favicon-32x32.png',
       maskIcon: './web-icons/dashy-logo.png',
