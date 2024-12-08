@@ -526,31 +526,10 @@ Huge thanks to the sponsors helping to support Dashy's development!
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/undefined">
-            <img src="" width="80;" alt="undefined"/>
-            <br />
-            <sub><b>Undefined</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/koconder">
-            <img src="https://avatars.githubusercontent.com/u/25068?u=582657b23622aaa3dfe68bd028a780f272f456fa&v=4" width="80;" alt="koconder"/>
+        <a href="https://github.com/vincentkoc">
+            <img src="https://avatars.githubusercontent.com/u/25068?u=cbf098fc04c0473523d373b0dd2145b4ec99ef93&v=4" width="80;" alt="vincentkoc"/>
             <br />
             <sub><b>Vincent Koc</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Admonstrator">
-            <img src="https://avatars.githubusercontent.com/u/69824?u=1e226d7a36cdd661c3e4cd486fea140d045b7d57&v=4" width="80;" alt="Admonstrator"/>
-            <br />
-            <sub><b>Aaron Viehl</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/tbjers">
-            <img src="https://avatars.githubusercontent.com/u/1117052?v=4" width="80;" alt="tbjers"/>
-            <br />
-            <sub><b>Torgny Bjers</b></sub>
         </a>
     </td>
     <td align="center">
@@ -566,8 +545,7 @@ Huge thanks to the sponsors helping to support Dashy's development!
             <br />
             <sub><b>Shrippen</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/bile0026">
             <img src="https://avatars.githubusercontent.com/u/5022496?u=aec96ad173c0ea9baaba93807efa8a848af6595c&v=4" width="80;" alt="bile0026"/>
@@ -588,7 +566,8 @@ Huge thanks to the sponsors helping to support Dashy's development!
             <br />
             <sub><b>Digital Archeology</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/InDieTasten">
             <img src="https://avatars.githubusercontent.com/u/7047377?u=8d8f8017628b38bc46dcbf3620e194b01d3fb2d1&v=4" width="80;" alt="InDieTasten"/>
@@ -609,8 +588,7 @@ Huge thanks to the sponsors helping to support Dashy's development!
             <br />
             <sub><b>Brian McGonagill</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/vlad-tim">
             <img src="https://avatars.githubusercontent.com/u/11474041?u=eee43705b54d2ec9f51fc4fcce5ad18dd17c87e4&v=4" width="80;" alt="vlad-tim"/>
@@ -631,12 +609,13 @@ Huge thanks to the sponsors helping to support Dashy's development!
             <br />
             <sub><b>Patrick Van Der Veken</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
-        <a href="https://github.com/plgonzalezrx8">
-            <img src="https://avatars.githubusercontent.com/u/19900049?u=48a58d2da520a9d712184c6e6e99927ff3cbf179&v=4" width="80;" alt="plgonzalezrx8"/>
+        <a href="https://github.com/MioOgbeni">
+            <img src="https://avatars.githubusercontent.com/u/24291977?u=4178230d1acd14b41ca7f4eaf9b96811045167f0&v=4" width="80;" alt="MioOgbeni"/>
             <br />
-            <sub><b>Pedro Gonzalez</b></sub>
+            <sub><b>Tomáš Novák</b></sub>
         </a>
     </td>
     <td align="center">
@@ -644,6 +623,27 @@ Huge thanks to the sponsors helping to support Dashy's development!
             <img src="https://avatars.githubusercontent.com/u/24632172?u=0d20f2d615158f87cd60a3398d3efb026c32f291&v=4" width="80;" alt="mryesiller"/>
             <br />
             <sub><b>Göksel Yeşiller</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/sushibait">
+            <img src="https://avatars.githubusercontent.com/u/26634535?v=4" width="80;" alt="sushibait"/>
+            <br />
+            <sub><b>Shiverme Timbers</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/undefined">
+            <img src="" width="80;" alt="undefined"/>
+            <br />
+            <sub><b>Undefined</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/semiceau">
+            <img src="https://avatars.githubusercontent.com/u/50425951?u=f8c386b966312769f559422adf0dbc7e2f116258&v=4" width="80;" alt="semiceau"/>
+            <br />
+            <sub><b>GT</b></sub>
         </a>
     </td>
     <td align="center">
@@ -655,10 +655,10 @@ Huge thanks to the sponsors helping to support Dashy's development!
     </td></tr>
 <tr>
     <td align="center">
-        <a href="https://github.com/M2TD">
-            <img src="https://avatars.githubusercontent.com/u/85460457?v=4" width="80;" alt="M2TD"/>
+        <a href="https://github.com/OlliVHH">
+            <img src="https://avatars.githubusercontent.com/u/84959562?v=4" width="80;" alt="OlliVHH"/>
             <br />
-            <sub><b>M2TD</b></sub>
+            <sub><b>HamburgerJung</b></sub>
         </a>
     </td>
     <td align="center">
@@ -669,10 +669,24 @@ Huge thanks to the sponsors helping to support Dashy's development!
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/st617">
+            <img src="https://avatars.githubusercontent.com/u/128325650?v=4" width="80;" alt="st617"/>
+            <br />
+            <sub><b>St617</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/nrvo">
             <img src="https://avatars.githubusercontent.com/u/151435968?u=e1dcb307fd0efdc45cddbe9490a7b956e4da6835&v=4" width="80;" alt="nrvo"/>
             <br />
             <sub><b>Nrvo</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/hudsonrock-partnerships">
+            <img src="https://avatars.githubusercontent.com/u/163282900?u=5f2667f7fe5d284ac7a2da6b0800ea8970b0fcbf&v=4" width="80;" alt="hudsonrock-partnerships"/>
+            <br />
+            <sub><b>Hudsonrock-partnerships</b></sub>
         </a>
     </td></tr>
 </table>
